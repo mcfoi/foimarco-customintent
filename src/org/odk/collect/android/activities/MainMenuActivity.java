@@ -236,7 +236,8 @@ public class MainMenuActivity extends Activity {
 		mCompletedCount = mFinalizedCursor.getCount();
 		mFinalizedCursor.registerContentObserver(mContentObserver);
 
-		// count for finalized instances
+
+		// count for incomplete instances
 		String selectionSaved = InstanceColumns.STATUS + "=?";
 		String selectionArgsSaved[] = { InstanceProviderAPI.STATUS_INCOMPLETE };
 
@@ -249,7 +250,7 @@ public class MainMenuActivity extends Activity {
         }
 
         startManagingCursor(mSavedCursor);
-		mSavedCount = mFinalizedCursor.getCount();
+		mSavedCount = mSavedCursor.getCount();
 		// don't need to set a content observer because it can't change in the
 		// background
 
